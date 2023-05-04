@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;1,400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+
+}
+
+body{
+    overflow-x: hidden;
+}
+
+/* centrer le formulaire */
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    min-height: 100vh;
+    padding: 20px;
+    width: 100%;
+    background: #02141a;
+}
+
+/* rond rouge */
+section::before{
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(18deg,#ffeb3b, #e91e63);
+    border-radius: 50%;
+    transform: translate(-420px, -180px);
+
+}
+
+/* rond bleu */
+section::after{
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(18deg,#2196f3, #83d8ff);
+    border-radius: 50%;
+    transform: translate(400px, 180px);
+    
+}
+
+/* carré transparent */
+.container{
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+    max-width: 1000px;
+    padding: 50px;
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 25px 45px rgba(0,0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-right: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+} 
+
+
+.container::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -40%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.05);
+    pointer-events: none;
+    transform: skewX(-25deg);
+}
+
+/* texte du formulaire*/
+.container h2{
+    width: 100%;
+    text-align: center;
+    color : #fff;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+/* position du formulaire responsive */
+.container .row{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+}
+
+/* position écart entre les entrees */
+.container .row .col{
+    position: relative;
+    width: 100%;
+    padding: 0 10px;
+    margin: 30px 0 20px;
+
+}
+
+/* ecart entre les entrees */
+.container .row .col .inputbox{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* color: #fff; */
+
+}
+
+/* esthetique des entrees */
+.container .row .col .inputbox input{
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: transparent;
+    border-radius: 50px;
+    outline: none;
+    color:#fff;
+    font-size: 1em;
+    transition: 0.5s;
+}
+
+/* placement et degaine du txt formulaire */
+.container .row .col .inputbox span
+{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(255,255,255,0.2);
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+/* deplacement du texte au clic et de la degaine */
+.container .row .col .inputbox input:valid ~ span,
+.container .row .col .inputbox input:focus ~ span{
+    transform: translateX(10px) translateY(-10px);
+    
+    /* pb */
+    padding: 0 15;
+    border-radius: 10px;
+    /*border-left: 1px solid #2196f3;
+    border-right: 1px solid #2196f3; */
+
+    background: #ffffff;
+    color: #000000;
+
+    
+    letter-spacing: 0.2em; 
+    font-size: 0.8em;
+    
+}
+
+/* couleur du contour au clic */
+.container .row .col .inputbox input:valid,
+.container .row .col .inputbox input:focus {
+    border :1px solid #ffffff;
+}
+
+
+/* deplacement du texte au clic et de la degaine pour le textarea */
+
+.container .row .col .inputbox textarea{
+    height: 150px;
+    width: 100%;
+    resize: none;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: transparent;
+    border-radius: 25px;
+    outline: none;
+    color:#fff;
+    padding: 8px 10px;
+    font-size: 1em;
+    transition: 0.5s;
+    
+}
+
+
+.container .row .col .inputbox textarea:valid,
+.container .row .col .inputbox textarea:focus {
+    border :1px solid #ffffff;
+}
+
+
+.container .row .col .inputbox textarea:valid ~ span,
+.container .row .col .inputbox textarea:focus ~ span{
+    transform: translateX(15px) translateY(-10px);
+    
+    padding: 0 15;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #000000;
+
+    
+    letter-spacing: 0.2em; 
+    font-size: 0.8em;
+    z-index: 1;
+    
+}
+
+
+
+/* boutton */
+.container .row .col input[type="submit"]{
+
+    display: flex;
+    border: none;
+    padding: 8px 25px;
+    cursor: pointer;
+    outline: none;
+    background: white;
+    color: black;
+    font-weight: 18px;
+    border-radius: 50px;
+    font-size: 1em;
+    letter-spacing: 0.2em;
+    transition: 0.5s;
+
+}
+
+.container .row .col input[type="submit"]:hover {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
